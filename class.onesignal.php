@@ -47,5 +47,28 @@ class OneSignal {
         return $response;
     }
 
+    public static function guest() {
+	    if (!isset($_SESSION['user_id'])) {
+		    return '<!-- /* not logged in */ -->';
+	    }
+
+	    $string = file_get_contents('javascripts/onesignal_guest.js');
+	    $string = str_replace('[[[APP_ID]]]', ONESIGNAL_APP_ID, $string);
+	    return $string;
+    }
+
+    public static function user() {
+
+	    if (!isset($_SESSION['user_id'])) {
+		    return '<!-- /* not logged in */ -->';
+	    }
+
+	    $string = file_get_contents('javascripts/onesignal_user.js');
+	    $string = str_replace('[[[APP_ID]]]', ONESIGNAL_APP_ID, $string);
+	    $string = str_replace('[[[USERID]]]', $_SESSION['user_id'], $string);
+
+	    return $string;
+    }
+
 
 }

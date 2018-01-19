@@ -30,7 +30,7 @@ $user = mysqli_fetch_assoc($result);
 
     <script>
     <?php
-    echo OneSignal::init();
+    //echo OneSignal::init();
     ?>
     </script>
 
@@ -62,8 +62,17 @@ if (!isset($_SESSION['user_id'])) {
     <a href="welcome.php?logout=1">Logout</a>
 </div>
 
+<a href="guest.php">Guest</a>
+<br>
+<a href="guest.php">User</a>
+<br>
+
+
+
 <div id="playerok" class="alert alert-success" style="display: none;">
 </div>
+
+
 
 <div id="sendpush" class="alert" style="display: block;">
     <form action="welcome.php" method="post">

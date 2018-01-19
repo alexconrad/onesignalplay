@@ -2,13 +2,14 @@
 session_start();
 ?>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <?php
-if (isset($_POST['action'])) {
+if (isset($_POST['action']))
+{
 
 require 'mysql.php';
 
@@ -51,13 +52,18 @@ require 'mysql.php';
 
         $_SESSION['user_id'] = $row['user_id'];
 
+        header("Location: welcome.php");
+        die();
+
         ?>
         <div class="alert alert-success" role="alert">
             You are logged in. user_id = <?=$row['user_id']?>
             <br>
-            <a href="welcome.php">Proceed.</a>
+            <a href="welcome.php">Proceeding...</a>
+
         </div>
         <?php
+
         die();//qwe 123
     }
 
