@@ -1,0 +1,34 @@
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+            appId: "168949cf-ee68-4660-bec6-649ec707688f",
+            notifyButton: {
+                enable: true /* Set to false to hide */
+            },
+            autoRegister: false, /* Set to true to automatically prompt visitors */
+            httpPermissionRequest: {
+                enable: true
+            },
+            welcomeNotification: {
+                "title": "Atami",
+                "message": "Thanks yo"
+                // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+            },
+            promptOptions: {
+                /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
+                /* actionMessage limited to 90 characters */
+                actionMessage: "Yall want some pushes ?",
+                /* acceptButtonText limited to 15 characters */
+                acceptButtonText: "ALLOW",
+                /* cancelButtonText limited to 15 characters */
+                cancelButtonText: "NO THANKS"
+            }
+        }]);
+        OneSignal.push(function() {
+            OneSignal.showHttpPrompt();
+        });
+    </script>
+</head>
